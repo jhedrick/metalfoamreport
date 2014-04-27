@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	TAMU THESIS TEMPLATE
+%	Author: Wendy Lynn Turner 
+%	Modified by Jacob Hedrick & Timi Ogunbekun
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage{subfiles} % Enable subfiles for compartmentalization....
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+ \usepackage[onehalfspacing]{setspace}
+ \usepackage{tocloft}
+ \usepackage[rm, tiny,center, compact]{titlesec}
+ %\usepackage{indentfirst}
+ \usepackage{etoolbox}
+\usepackage{tocvsec2}
+ \usepackage[titletoc]{appendix}
+ \usepackage{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% From http://texblog.org/2012/07/03/fancy-latex-chapter-styles/
+ \usepackage{titlesec, blindtext, color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tamuconfig}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{epstopdf} % converts eps to pdf, allows use of eps files. 
+\usepackage{amsmath}
+\usepackage{mathtools} % for boxed answers in an align enviroment
+\usepackage{enumitem}
+\usepackage{float}
+	\floatstyle{plaintop}
+	\restylefloat{table}
+\usepackage{pdfpages} % include PDF documents as separate pages - use \includepdf[pages={1}]{myfil
+\usepackage{caption} 	% Used for tables
+	\captionsetup[table]{skip=5pt}
+\usepackage{array,multirow}	
+\usepackage{SIunits}  % standard units :: "" but metre second etc... ex. \kilogrampercubicmetre = kg/m^3 , option: thickqspace :: this gives space between units and numbers.
+\usepackage{hwmacros}
+
+%%%%%%%%%%%%%%%%%%%! CITATIONS !%%%%%%%%%%%%%%%%%%%%%%
+% Please reference the following website when editing references.bib
+% 	http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+% Always use ~\cite{nameOfAuthorHere} when citing.
+% You'll have to compile the .bib file by running manually
+% 	pdfLaTeX+MakeIndex+BibTeX in that order. Reference: http://tex.stackexchange.com/questions/105868/cannot-generate-bibliography-using-texworks-from-miktex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% Macros for Units %%%%%%%%%%%%%%%%%%
+\newcommand{\mt}{{\color{red} missing text here }} % missing text place holder	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\include{titlepage}
+\include{lists} % TOC, LOF, LOT 
+
+\subfile{abstract}
+
+\subfile{nomenclature}
+%
+\subfile{introduction}
+
+%
+\subfile{parameter}
+%
+\subfile{methodology}
+%
+\subfile{sensitivityAnalysis}
+%
+\subfile{results}
+%
+\subfile{conclusions}
+%
+\subfile{futureWork}
+%
+\subfile{acknowledgement}
+%
+%\subfile{bibliography}
+%
+%\subfile{appendices}
+
+
+%%fix spacing in bibliography, if any...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \let\oldbibitem\bibitem
+% \renewcommand{\bibitem}{\setlength{\itemsep}{0pt}\oldbibitem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\include{appendices} % Should include both bib and calcs
+%\include{bibliography} % move to appendices.tex
+
+\end{document}
