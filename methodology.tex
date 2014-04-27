@@ -1,7 +1,9 @@
-\documentclass[asme2ejs.tex]{subfiles}
+\documentclass[compileTAMUreport.tex]{subfiles}
 
 \begin{document}
 \section{Methodology}
+
+\subsection{Assumptions}
 
 It is necessary to clearly state our assumptions for the following analysis as many considerations have be approximated or considered on a theoretical basis since the actual effects are quite complex. 
 In summary, our assumptions for the various sub-systems of our model require:
@@ -17,7 +19,7 @@ In summary, our assumptions for the various sub-systems of our model require:
 
 	\item Thermodynamics
 		\begin{itemize}
-			\item	Constant specific heat ($c_v$)
+			\item	Constant specific heat ($c_v$) taken at the average internal energy.
 			\item 	Real fluid properties
 			\item 	For a pressure drop along the length of the tube/foam, the saturation temperature also changes with length of the pipe.
 		\end{itemize}
@@ -44,7 +46,7 @@ In summary, our assumptions for the various sub-systems of our model require:
 	\end{itemize}
 \end{itemize}
 
-The usage of metal foams in the boiler to enhance the heat transfer between the boiler and fluid  would effectively increase the rate at which the steam is produced thereby potentially reducing the length of the boiler.0
+The usage of metal foams in the boiler to enhance the heat transfer between the boiler and fluid  would effectively increase the rate at which the steam is produced thereby potentially reducing the length of the boiler.
 The analysis of heat transfer in a metal foam can either be performed using a two energy equation volume averaged or a cell/lattice resolution method.
 In the volume averaged method the effective surface area, relative density and effective heat transfer coefficient  are used to calculate the various heat transfer properties required to determine the desired results.
 \cite{Du2010}
@@ -57,13 +59,15 @@ The WP structure has an 8 cell group symmetry due to the use of 2 separate cell 
 The basic structure was taken into consideration was to optimise the heat transfer rate and minimize the heat storage in the metal foam, this is basically done by increasing the surface area to volume ratio.
 \cite{Kusner1996}
 
+% This is the figure we need here.
+
 %%%%%%%%%%%%%%%% begin FIGURE 1 %%%%%%%%%%%%%%%%%%%
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=0.35\textwidth]{./figure/CellGroup2}
+\includegraphics[width=0.35\textwidth]{./figure/TruncatedOctohedronSphereRemoved}
 \end{center}
-\caption{Terminated Octahedron also known as a Kelvin Structure}
-\label{fig:flowregime}
+\caption{Terminated Octahedron Unit Cell also Known as a Kelvin Structure}
+\label{fig:trucOctModel-UnitCell}
 \end{figure}
 %%%%%%%%%%%%%%%% end FIGURE %%%%%%%%%%%%%%%%%%
 
@@ -72,6 +76,9 @@ To our knowledge, no one has yet published any results using such a method.
 At the nodes, spheres will be placed and for the geometry of the ligaments, isosceles prismatic fins will connect to the spheres. 
 A correction factor will be applied to take the sphere contact face as ``flat" to simplify the fin equations. 
 Utilizing symmetry, of which the tetrakaidecahedron has symmetry along $90\degree, 120\degree,$ and $180\degree$, it will be determined which symmetry mode will be used to simplify this analytical study.
+
+
+%% Go grab a good unit cell picture! 
 
 %%%%%%%%%%%%%%%% begin FIGURE 2 %%%%%%%%%%%%%%%%%%%
 \begin{figure}[t]
@@ -83,42 +90,20 @@ Utilizing symmetry, of which the tetrakaidecahedron has symmetry along $90\degre
 \end{figure}
 %%%%%%%%%%%%%%%% end FIGURE %%%%%%%%%%%%%%%%%%
 
+The network of prisms and fins can be broken down by symmetric groupings along certain direction vectors, solved for nodal temperature using resistance analogy methods, and can be used to determine total convective heat transfer into the water. 
+For our flow case, which is turbulent on both the tube and pore length scale, the following correlations for heat transfer coefficient can be used in a homogeneous regime.
 
-In either method, the fluids equations are the same, and do not change:
+For spheres in turbulent external flow, $h_{sph}$ is
+% Enter equation here... and CITE.
+which is valid for $< Pr  < $ and $ < Re <$. 
+As shown in Table \ref{tab:ReynoldsNumbers}, this relationship is valid for all flow conditions considered in this study.
 
-\noindent\textbf{Conservation of Mass}
-\begin{equation}
-\pdif{u}{x}+\pdif{v}{y} + \pdif{w}{z} = 0
-\end{equation}
+For triangular prisms in turbulent external flow, very little data exists for $h_{sph}$. 
+A relationship can be determined from the Chilton \& Coburn analogy.... % Did we use the analogy or the "EXPERIMENTAL STUDY ON FLUID FLOW AND HEAT TRANSFER FROM A TRIANGULAR PRISM APPROACHING THE WALL OF A WIND TUNNEL (REYNOLDS NUMBER = 2.6×104) Dipes Chakrabarty, Ranajit Brahma Paper" ?  
+% Enter equation here... and CITE.
+which is valid for $< Pr  < $ and $ < Re <$. 
+It is presumed that the scaling on this problem allows us to apply this relationship for all flow conditions considered in this study.
 
-\textbf{Conservation of Momentum}
-\begin{align}
-\rho \left( u \pdif{u}{x} + v\pdif{u}{y} + w\pdif{u}{z} \right) &= - \pdif{p}{x} + \mu \left( \podif{u}{x}{2} + \podif{u}{y}{2} + \podif{u}{z}{2} \right) + X\\
-\rho \left( u \pdif{v}{x} + v\pdif{v}{y} + w\pdif{v}{z} \right) &= - \pdif{p}{y} + \mu \left( \podif{v}{x}{2} + \podif{v}{y}{2} + \podif{v}{z}{2}  \right) + Y \\
-\rho \left( u \pdif{w}{x} + v\pdif{w}{y} + w\pdif{w}{z} \right) &= - \pdif{p}{z} + \mu \left( \podif{w}{x}{2} + \podif{w}{y}{2} + \podif{w}{z}{2}  \right) + Z
-\end{align}
-
-Solving the conservation of momentum first, before invoking the heat transfer solver, will allow the ``fully developed" flow condition to be realized. \\
-
-\noindent\textbf{Conservation of Energy}
-
-\begin{align}
-\rho c_p \left( u \pdif{T}{x} + v \pdif{T}{y} + w \pdif{T}{z} \right) &= k \left( \podif{T}{x}{2}+\podif{T}{y}{2} +\podif{T}{z}{2} \right) + \mu \Phi + \dot{q}
-\end{align}
-
-Note that for non-thermal equilibrium, the temperature within the foam is not assumed to be equal to the wall fluid boundary temperature. 
-This requires you to solve a two energy conservation equations, one for each medium. 
-This is of great concern when you have a fluids with a much lower thermal conductivity than the metal foam solid.
-Lastly, you can use the following relations for normal and shear stress with velocity gradients.
-
-\begin{align}
-\sigma_{xx} &= 2\mu \pdif{u}{x} - \frac{2}{3} \mu \left( \pdif{u}{x} + \pdif{v}{y} + \pdif{w}{z}  \right) \\
-\sigma_{yy} &= 2 \mu \pdif{v}{y} - \frac{2}{3} \mu \left( \pdif{u}{x} + \pdif{v}{y} + \pdif{w}{z}  \right) \\
-\sigma_{zz} &= 2 \mu \pdif{w}{z} - \frac{2}{3} \mu \left( \pdif{u}{x} + \pdif{v}{y} + \pdif{w}{z} \right) \\
-\tau_{xy} &= \tau_{yx} = \mu \left( \pdif{u}{y} + \pdif{v}{x} \right) \\
-\tau_{xz} &= \tau_{zx} = \mu \left( \pdif{w}{x} + \pdif{u}{z} \right) \\
-\tau_{yz} &= \tau_{zy} = \mu \left( \pdif{w}{y} + \pdif{v}{z} \right)
-\end{align}
 
 The bound on heat flux into the tubes are given the the Zuber Kutateladze prediction for film boiling, such that
 
@@ -170,7 +155,7 @@ Again, the basic aim of this project is to compare the effectiveness of a metal 
 			\item $\rho_{cell} : [5,10,40] \mathrm{PPI}$
 			\item $\phi_{porosity}= 0.97$, maximized
 			\item $\dot{m} =63 \kilo\gram\per\second$, average
-			\item $ q’’_(wall,max)=4.5 \kilo\watt\per\metre\squared$
+			\item $ q’’_(\mathrm{wall,max})=4.5 \kilo\watt\per\metre\squared$
 			\item $ 0.025 < D_{\mathrm{pipe}} < .15 \metre$
 			\item $ T_{in}=500K;P_{in} = 650 \kilo\pascal $
 		\end{enumerate}
