@@ -1,0 +1,42 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{hwmacros}[01/23/2014 : homework generation macros, general]
+
+
+%%%%%%%%%%%%%%%%%DEFINE MACROS FOR SECTIONS%%%%%%%%%%%%%%%%%%
+\newcommand{\prob}[1]{\noindent\textsc{\textbf{Problem #1.) }}\hspace{1em}}
+\newcommand{\fnd}{\noindent\underline{\textsc{\textbf{Find : }}}} 
+\newcommand{\schem}{\noindent\underline{\textsc{\textbf{Schematics : }}}} 
+\newcommand{\assu}{\noindent\underline{\textsc{\textbf{Assumptions : }}}\hspace{1em}}
+\newcommand{\soln}{\noindent\underline{\textsc{\textbf{Solution : }}}} 
+\newcommand{\pprt}[1]{\vspace{0.25em}\hspace{1em}{\textsc{\textbf{Part #1}}} \vspace{0.5em}} 
+\newcommand{\cplt}{\begin{center}\rule{5in}{0.4pt}\end{center}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%DEFINE MACROS FOR THERMO%%%%%%%%%%%%%%%%%%
+\newcommand{\Tsat}{\ensuremath{T_{\mathrm{sat}}}\xspace}
+\newcommand{\Psat}{\ensuremath{P_{\mathrm{sat}}}\xspace}
+\newcommand{\vf}{\ensuremath{\nu_{\mathrm{f}}}\xspace}
+\newcommand{\vg}{\ensuremath{\nu_{\mathrm{g}}}\xspace}
+% Many of these macros could be replaced by the commath package.
+\newcommand{\pdifc}[3]{\ensuremath{\left( \frac{\partial #1}{\partial #2} \right)_{#3}}}
+\newcommand{\pdif}[2]{\ensuremath{ \frac{\partial #1}{\partial #2} }}
+\newcommand{\podif}[3]{\ensuremath{ \frac{\partial^{#3} #1}{\partial{#2}^{#3}}}} % For some reason the next character disapears when using this macro. Beware!
+\newcommand{\difc}[3]{\ensuremath{\left( \frac{\mathrm{d} #1}{\mathrm{d} #2} \right)_{#3}}}
+\newcommand{\dif}[2]{\ensuremath{ \frac{\mathrm{d} #1}{\mathrm{d} #2} }}
+\newcommand{\odif}[3]{\ensuremath{ \frac{\mathrm{d}^{#3} #1}{\mathrm{d}{#2}^{#3}}}} % For some reason the next character disapears when using this
+% for differentials in integration
+%\makeatletter % This didn't do what I hoped.
+%\renewcommand\d[1]{\mspace{6mu}\mathrm{d}#1\@ifnextchar\d{\mspace{-3mu}}{}} % This didn't do what I hoped.
+\renewcommand{\d}{\mathop{}\mathrm{d}}
+%\makeatother % This didn't do what I hoped.
+\newcommand{\uvec}[1]{\ensuremath{\hat{e}_{#1}}\xspace}
+\newcommand{\NAv}{\ensuremath{\mathrm{N}_{\mathrm{Av}}}\xspace}
+\newcommand{\rpm}{\ensuremath{\frac{\mathrm{rev}}{\mathrm{min}}}\xspace}
+\newcommand{\rps}{\ensuremath{\frac{\mathrm{rev}}{\mathrm{s}}}\xspace}
+\newcommand{\radprev}{\ensuremath{\frac{\mathrm{rad}}{\mathrm{rev}}}\xspace}
+\newcommand{\radpdeg}{\ensuremath{\frac{\mathrm{rad}}{\mathrm{deg}}}\xspace}
+\newcommand{\degprad}{\ensuremath{\frac{\mathrm{deg}}{\mathrm{rad}}}\xspace}
+\newcommand{\cvol}{\ensuremath{$C$\mathop{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}\nolimits}}
+% Heat transfer commands
+\newcommand{\Tsur}{\ensuremath{T_{\mathrm{sur}}}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

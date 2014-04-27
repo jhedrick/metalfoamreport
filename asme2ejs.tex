@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% asme2ej.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template for producing ASME-format journal articles using LaTeX    %
+% Written by   Harry H. Cheng, Professor and Director                %
+%              Integration Engineering Laboratory                    %
+%              Department of Mechanical and Aerospace Engineering    %
+%              University of California                              %
+%              Davis, CA 95616                                       %
+%              Tel: (530) 752-5020 (office)                          %
+%                   (530) 752-1028 (lab)                             %
+%              Fax: (530) 752-4158                                   %
+%              Email: hhcheng@ucdavis.edu                            %
+%              WWW:   http://iel.ucdavis.edu/people/cheng.html       %
+%              May 7, 1994                                           %
+% Modified: February 16, 2001 by Harry H. Cheng                      %
+% Modified: January  01, 2003 by Geoffrey R. Shiflett                %
+% Modified: July 19, 2009 as a template in a single column for       %
+%           ASME Journals by Harry H. Cheng                          %
+% Use at your own risk, send complaints to /dev/null                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% use 10pt options with the asme2ej format
+\documentclass[12pt,cleanhead]{asme2ej}
+
+\newcommand\labelitemi{\textbullet}
+\usepackage{subfiles} % Enable subfiles for compartmentalization....
+\usepackage{graphicx} % images
+\usepackage{epstopdf} % converts eps to pdf, allows use of eps files. 
+\usepackage{float} 	  % precise positioning of figures in document, use [H] in placement specifier
+\usepackage{pdfpages} % include PDF documents as separate pages - use \includepdf[pages={1}]{myfil
+\usepackage{epstopdf} % converts eps to pdf, allows use of eps files. 
+\usepackage{float} 	  % precise positioning of figures in document, use [H] in placement specifier
+\usepackage{pdfpages} % include PDF documents as separate pages - use \includepdf[pages={1}]{myfil
+\usepackage{amsmath}  % math
+\usepackage{mathtools} % for boxed answers in an align enviroment
+\usepackage{array,multirow} % more complex tables
+\usepackage{SIunits}  % standard units :: "" but metre second etc... ex. \kilogrampercubicmetre = kg/m^3 , option: thickqspace :: this gives space between units and numbers.
+\usepackage{hwmacros}
+
+%%%%%%%%%%%%%%%%%% MODIFICATIONS %%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\labelitemi}{$\bullet$}
+%\renewcommand{\labelitemii}{$\cdot$}
+%\renewcommand{\labelitemiii}{$\diamond$}
+%\renewcommand{\labelitemiv}{$\ast$}
+
+%% The class has several options
+%  onecolumn/twocolumn - format for one or two columns per page
+%  10pt/11pt/12pt - use 10, 11, or 12 point font
+%  oneside/twoside - format for oneside/twosided printing
+%  final/draft - format for final/draft copy
+%  cleanfoot - take out copyright info in footer leave page number
+%  cleanhead - take out the conference banner on the title page
+%  titlepage/notitlepage - put in titlepage or leave out titlepage
+%  
+%% The default is oneside, onecolumn, 10pt, final
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\subfile{coverpage}
+%
+\subfile{abstract}
+%
+%% ? TOC LOF LOE
+%
+\subfile{nomenclature}
+%
+\subfile{introduction}
+%
+\subfile{methodology}
+%
+\subfile{sensitivityAnalysis}
+%
+\subfile{results}
+%
+\subfile{conclusions}
+%
+\subfile{futureWork}
+%
+\subfile{acknowledgement}
+%
+%\subfile{bibliography}
+%
+%\subfile{appendices}
+
+\end{document}
