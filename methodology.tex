@@ -11,8 +11,10 @@ In summary, our assumptions for the various sub-systems of our model require:
 	\item Foams
 		\begin{itemize}
 			\item 	Error introduced by using Kelvin relation is acceptable versus computational effort for W-P structure
+			\item The foam properties are constant through out.
 			\item	Metal foam measurements are known to be inaccurate. 
-			For a foam of 0.97 porosity ($\epsilon$), the Kelvin stucture with a spherical void to yield the given porosity can be optimized to an analytical geometry constructed of spheres and equilateral prisms that is equivalent to a metal foam. 
+			For a foam of 0.97 porosity ($\epsilon$), the Kelvin stucture with a spherical void to yield the given porosity can be optimized to an analytical geometry constructed of spheres and equilateral prisms that is equivalent to a metal foam.
+			 
 			[Bhattacharaya 		\& Mahajan 2002 AIAA] state that the limit of the equilateral triangle geometry extends to $\epsilon = 0.94$ before becoming a convex prism. 
 			We take this as an error in our model that is reasonable to perform the calculations.
 		\end{itemize}
@@ -28,7 +30,7 @@ In summary, our assumptions for the various sub-systems of our model require:
 	\begin{itemize}
 		\item 	Only considering saturated, two phase flow 
 		\item 	Inlet conditions are fully developed for the metal foam and non-metal foam cases
-		\item 	Flow is turbulent on all length scales: tube and pore [Incropera, de Jager 2013 HTEngr]
+		\item 	Flow is turbulent on all length scales: tube and pore \cite{Incropera}
 		\item 	Stable flow conditions. No transition schemes are modeled on any length scale.
 		\item 	Only considering dispersed/bubbly and annular flows since the fluid is not subcooled before entering our analysis and the desired exit quality of the flow is 0.8. 
 		Alternatively it could be said that we are not considering any form of dimensionalized intermediate flow regime (slug or churn).
@@ -41,7 +43,7 @@ In summary, our assumptions for the various sub-systems of our model require:
 \item Heat Transfer
 	\begin{itemize}
 		\item 	Inlet temperature for the fluid is at saturation temperature
-		\item 	Non-thermal equilibrium is assumed with the foam
+		\item 	Non-thermal equilibrium is assumed with the foam\cite{Xu2011}
 		\item 	No bubble confinement  (sub cooled boiling) required in our model since fluid is at Tsat at entrance.
 	\end{itemize}
 \end{itemize}
@@ -166,6 +168,6 @@ Again, the basic aim of this project is to compare the effectiveness of a metal 
 		\end{enumerate}
 \end{itemize}
 
-For the simulation of our model we have taken the ligament for the metal foam to be triangular and the overall shape of the cell to be tetrakiadecaheadron (14 phases - 8 equilateral triangle and 6 octagons).
+For the simulation of our model we have taken the ligament for the metal foam to be triangular and the overall shape of the cell to be tetrakiadecaheadron (14 phases - 8 equilateral triangle and 6 octagons).\cite{Boomsma2011}
 
 \end{document}
