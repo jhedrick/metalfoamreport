@@ -6,22 +6,22 @@
 \begin{itemize}
 \item After doing an extensive literature review. We have narrowed the main parameter that have to be taken into account for getting the overall effectiveness of the model.
 \item The first thing that we did was to model the individual cell of the metal foam. The shape of the cell was a tetrakiadecaheadron (14 phases - 8 equilateral triangle and 6 octagons)as it was supposed to the ideal model proposed by Lord Kelvin which solves minimization.
-\item 謬he next step was to find out the structure of the individual filaments and node shape.(figure)
+\item The next step was to find out the structure of the individual filaments and node shape.(figure)
 \begin{itemize}
 \item[1] We designed that the filament shape to be equilateral triangular prism, as it would simply the calculation, we optimized the design in Star CCM so has to have the maximum porosity.
 \item[2] We designed the node to be spherical as it has the lowest volume to surface area ratio which would enhance the heat transfer between the node and the fluid.
 \end{itemize}
-
-表item	The next step was to find the plane of symmetry in the cell structure we constructed so as to the simply the problem to some level. Solving this we ended up the model shown in the figure below.(figure)
-表item	Now we constructed the profile for the quality of steam along the length of the boiler using 
-表item	Now we constructed the pressure profile along the length of the tube as there will be a pressure drop due to the presence of the metal foam.  We used the Forschimer Darcy model 
-表item	Now we calculated the heat transfer between the two and the filament assembly while the fluid is being passed.
-表item After constructing the temperature profile between nodes along the filament, we constructed the temperature profile in the radial direction.We constructed the model by taking the boundary conditions to be 
+\item	The next step was to find the plane of symmetry in the cell structure we constructed so as to the simply the problem to some level. Solving this we ended up the model shown in the figure below.(figure)
+\item	Now we calculated the heat transfer between the two nodes and the filament assembly while the fluid is being passed.
+\item After constructing the temperature profile between nodes along the filament, we constructed the temperature profile in the radial direction.We constructed the model by taking the boundary conditions to be 
 \begin{itemize}
 
 \item[1]Temperature at the surface of the boiler to be a constant value as stated in the assumptions.
 \item[2]Temperature at the center of the boiler piper to the local saturation temperature which varies on the local pressure (pressure profile).
 \end{itemize}
-封\item Using the above temperature profile we constructed the relation between the length of the pipe and the quality factor. As we have stated in the assumption that we have limited the quality of steam to be 0.8.
+\item	Constructed the profile for the quality of steam along the length of the boiler using 
+\item	Then we constructed the pressure profile along the length of the tube as there will be a pressure drop due to the presence of the metal foam.  We used the Forschimer Darcy model 
+
+\item Using the above temperature profile we constructed the relation between the length of the pipe and the quality factor. As we have stated in the assumption that we have limited the quality of steam to be 0.8.
 \end{itemize}
 \end{document}
